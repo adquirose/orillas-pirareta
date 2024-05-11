@@ -71,10 +71,10 @@ const Navigation = () => {
                 <Image src={imgLogo} alt="logo-curimaqui"/>
             </NavbarBrand>
             <div style={{width:'85px', display:'flex', justifyContent:'space-around'}}>
-                <Anchor href="tel:+56928140950">
+                <Anchor href="tel:+595981055655">
                     <PhoneCall width="32px" color={colorIcono}/>
                 </Anchor>
-                <Anchor href="mailto:parcelascurimaqui@gmail.com">
+                <Anchor href="mailto:mail@mail.com">
                     <Email width="32px" color={colorIcono}/>
                 </Anchor>
             </div>
