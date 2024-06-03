@@ -9,7 +9,7 @@ import {
     NavLink
   } from 'reactstrap';
 import styled from 'styled-components';
-import Logo from '../../assets/images/logo-blanco.png'
+// import Logo from '../../assets/images/logo-blanco.png'
 import LogoColor from '../../assets/images/logo-azul.png'
 import { PhoneCall, Email } from '../../Icons'
 import Bg from '../../assets/images/background.jpg'
@@ -34,8 +34,8 @@ const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [colorNav] = useState('') 
     const [colorText, setColorText] = useState('text-nav-blanco')
-    const [imgLogo, setImgLogo] = useState(Logo)
-    const [colorIcono, setColorIcono] = useState('var(--blanco)')
+    const [imgLogo, setImgLogo] = useState(LogoColor)
+    const [colorIcono, setColorIcono] = useState('var(--azul)')
     const [background, setBackground] = useState('none')
 
     const toggle = () => setIsOpen(!isOpen);
@@ -55,9 +55,9 @@ const Navigation = () => {
               document.body.scrollTop < 500
             ) {
             setBackground('none')
-              setImgLogo(Logo)
+              setImgLogo(LogoColor)
               setColorText('text-nav-blanco')
-              setColorIcono('var(--blanco)')
+              setColorIcono('var(--azul)')
             }
           };
         window.addEventListener("scroll", updateNavbarColor);
