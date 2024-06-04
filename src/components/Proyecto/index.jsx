@@ -1,7 +1,24 @@
 import { Container, Row, Col } from "reactstrap"
 import styled from "styled-components"
-import { ButtonHeader } from "../Header"
+import { Button } from 'reactstrap'
 
+export const ButtonHeader = styled(Button)`
+    border-radius:300px;
+    background-color:${props => props.$backgroundColor ? props.$backgroundColor: 'white'};
+    border-color:${props => props.$backgroundColor ? props.$backgroundColor: 'white'};
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    color:${props => props.$color ? props.$color: 'black'};
+    &:hover{
+        background-color:${props => props.background ? props.background: 'white'};
+        border-color:${props => props.background ? props.background: 'white'}; 
+        color:${props => props.color ? props.color: 'black'};
+    }
+    
+`
 export const Section = styled.section`
     background:none;
     padding:5rem 0 0 0;
@@ -52,18 +69,3 @@ const Proyecto = () => {
 }
 export default Proyecto
 
-{/* <section class="bg-gray" id="proyecto">
-            <div class="container">
-                <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-heading text-white">PARCELACIÓN CURIMAQUI</h2>
-                    <hr class="light my-4">
-                    <p class="text-faded mb-4">La Parcelación Curimaqui es un loteo campestre ubicado en la ladera de un cerro con pendiente suave, ofreciendo impresionantes vistas a la viña de Casas Patronales y a las cordilleras de la costa y los Andes, incluyendo el volcán Longaví y Chillán.<br><br>
-                    Los caminos internos son ripiados, el acceso al predio es asfaltado y hay tendido eléctrico por el frente de la parcelación. La obtención de agua es viable mediante pozos puntera debido al suelo arcilloso, y la parcelación se encuentra a 15 km de la ciudad de Cauquenes por camino asfaltado. Con rol propio, la mayoría de las parcelas supera los 10.000 m2, permitiendo la subdivisión en la mayoría de los casos.
-                    <br><br>
-                    </p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#tourvirtual">Mira el Masterplan 360º</a>
-                </div>
-                </div>
-            </div>
-        </section> */}

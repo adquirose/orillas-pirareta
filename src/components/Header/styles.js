@@ -49,6 +49,16 @@ export const ElementImage = styled.img`
 ElementImage.defaultProps = {
     src: Elemento,
 };
+export const Parrafo = styled.p`
+    font-size:1rem;
+    text-align:left;
+    width:100%;
+    padding-left:56px;
+    font-family:"Roboto Flex", sans-serif;
+    @media(max-width:920px){
+        display:none;
+    }
+`
 export const TextoContainer = styled.div`
     grid-column: 1/2;
     grid-row: 2/3;
@@ -67,7 +77,7 @@ export const FirmaContainer = styled.div`
     }
 `
 export const P = styled.p`
-    font-size:1.75rem;
+    font-size:1.45rem;
     color:orange;
     text-align:center;
     width:70%;
@@ -75,16 +85,7 @@ export const P = styled.p`
     margin:0;
     font-family:"Roboto Flex", sans-serif;
 `
-export const Parrafo = styled.p`
-    font-size:1rem;
-    text-align:left;
-    width:100%;
-    padding-left:56px;
-    font-family:"Roboto Flex", sans-serif;
-    @media(max-width:920px){
-        display:none;
-    }
-`
+
 export const FirmaImage = styled.img`
     width:60%;
     max-height:100%;

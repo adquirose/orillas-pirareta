@@ -11,8 +11,19 @@ import Plano from "./components/Plano"
 import Contacto from "./components/Contacto"
 import Footer from "./components/Footer"
 import Musica from "./components/Musica"
+import Historia from "./components/Historia"
+import useScreenSize from "./hooks/useScreenSize"
 
 function App() {
+  const { width } = useScreenSize()
+
+  const renderHistoria = () => {
+    if(width < 921){
+      return(
+        <Historia/>
+      )
+    } 
+  }
   return (
     <>
       <Helmet>
@@ -21,6 +32,7 @@ function App() {
       </Helmet>
       <Navigation/>
       <Header/>
+      { renderHistoria()}
       <Proyecto/>
       <Masterplan/>
       <Caracteristicas/>

@@ -9,10 +9,11 @@ import {
     NavLink
   } from 'reactstrap';
 import styled from 'styled-components';
-// import Logo from '../../assets/images/logo-blanco.png'
+import Logo from '../../assets/images/logo-blanco.png'
 import LogoColor from '../../assets/images/logo-azul.png'
 import { PhoneCall, Email } from '../../Icons'
 import Bg from '../../assets/images/background.jpg'
+import useScreenSize from '../../hooks/useScreenSize';
 
 const Image = styled.img`
   width:260px;
@@ -31,39 +32,76 @@ const NavBarStyle = styled(Navbar)`
 `
 
 const Navigation = () => {
+
     const [isOpen, setIsOpen] = useState(false);
     const [colorNav] = useState('') 
     const [colorText, setColorText] = useState('text-nav-blanco')
     const [imgLogo, setImgLogo] = useState(LogoColor)
-    const [colorIcono, setColorIcono] = useState('var(--azul)')
+    const [colorIcono, setColorIcono] = useState('var(--blanco)')
     const [background, setBackground] = useState('none')
+    const { width } = useScreenSize()
 
     const toggle = () => setIsOpen(!isOpen);
     
     useEffect(() => {
+        const updateWidth = () => {
+            if(width < 920){
+                setImgLogo(Logo)
+                setColorIcono('var(--blanco)')
+            }else{
+                setImgLogo(LogoColor) 
+                setColorIcono('var(--azul)')
+            }
+        }
+        updateWidth()
+    },[width])
+
+    useEffect(() => {
         const updateNavbarColor = () => {
-            if (
-              document.documentElement.scrollTop > 499 ||
-              document.body.scrollTop > 499
-            ) {
-              setBackground(Bg)
-              setImgLogo(LogoColor)
-              setColorText('text-nav-negro')
-              setColorIcono('var(--azul)')
-            } else if (
-              document.documentElement.scrollTop < 500 ||
-              document.body.scrollTop < 500
-            ) {
-            setBackground('none')
-              setImgLogo(LogoColor)
-              setColorText('text-nav-blanco')
-              setColorIcono('var(--azul)')
+            if(width > 920){
+                if (
+                  document.documentElement.scrollTop > 499 ||
+                  document.body.scrollTop > 499
+                ) {
+                  setBackground(Bg)
+                  setImgLogo(LogoColor)
+                  setColorText('text-nav-negro')
+                  setColorIcono('var(--azul)')
+                } else if (
+                  document.documentElement.scrollTop < 500 ||
+                  document.body.scrollTop < 500
+                ) {
+                    setBackground('none')
+                    setImgLogo(LogoColor)
+                    setColorText('text-nav-blanco')
+                    setColorIcono('var(--azul)')
+                    
+                }
+            }else{
+                if (
+                    document.documentElement.scrollTop > 499 ||
+                    document.body.scrollTop > 499
+                  ) {
+                    setBackground(Bg)
+                    setImgLogo(LogoColor)
+                    setColorText('text-nav-negro')
+                    setColorIcono('var(--azul)')
+                  } else if (
+                    document.documentElement.scrollTop < 500 ||
+                    document.body.scrollTop < 500
+                  ) {
+                      setBackground('none')
+                      setImgLogo(Logo)
+                      setColorText('text-nav-blanco')
+                      setColorIcono('var(--blanco)')
+                      
+                  }
             }
           };
         window.addEventListener("scroll", updateNavbarColor);
-            return function cleanup() {
-                window.removeEventListener("scroll", updateNavbarColor);
-          };
+        return function cleanup() {
+            window.removeEventListener("scroll", updateNavbarColor);
+        };
     },[])
     return(
         <NavBarStyle container={true} fixed='top' bg={background} color={colorNav} expand="lg" className='py-0'>
