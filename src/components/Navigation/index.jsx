@@ -37,7 +37,8 @@ const Navigation = () => {
     const [colorNav] = useState('') 
     const [colorText, setColorText] = useState('text-nav-blanco')
     const [imgLogo, setImgLogo] = useState(LogoColor)
-    const [colorIcono, setColorIcono] = useState('var(--blanco)')
+    const [colorIcono, setColorIcono] = useState('var(--azul)')
+    
     const [background, setBackground] = useState('none')
     const { width } = useScreenSize()
 
